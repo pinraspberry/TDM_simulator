@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Division Multiplexing Simulator</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap">
+    <link rel="stylesheet" href="styles copy 2.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <div class="header-content">
+                <h1 class="app-title">Synchronous Time Division Multiplexing Simulator</h1>
+                
+                <div class="controls-container">
+                    <div class="control-group">
+                        <label for="numDevices">Devices</label>
+                        <input type="number" id="numDevices" min="2" max="8" value="3">
+                    </div>
+                    <div class="device-inputs" id="device-inputs"></div>
+                    <div class="control-group button-group">
+                        <button id="setupBtn" class="btn primary">Setup</button>
+                        <button id="prevBtn" class="btn outline" disabled>Prev</button>
+                        <button id="stepBtn" class="btn outline" disabled>Step</button>
+                        <select id="simulationSpeed" class="speed-select">
+                            <option value="2000">Slow</option>
+                            <option value="1000" selected>Medium</option>
+                            <option value="500">Fast</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="simulator-container">
+            <div class="flow-diagram">
+                <div class="devices-section input-section">
+                    <div class="mux-card">
+                        <h2 class="card-icon strong">Transmitter</h2>
+                        <div class="device-container" id="inputDevices"></div>
+                    </div>
+                </div>
+
+                <div class="processing-section">
+                    <div class="mux-card">
+                        <div class="card-header">
+                            <div class="card-icon">MULTIPLEXER</div>
+                        </div>
+                        <div class="card-body" id="current-mux-state">Waiting for setup...</div>
+                    </div>
+
+                    <div class="transmission-line">
+                        <div class="line-animation"></div>
+                    </div>
+
+                    <div class="tdm-section">
+                        <div class="tdm-header">
+                            <h3>TDM Frame</h3>
+                        </div>
+                        <div class="tdm-frames" id="tdm-frame"></div>
+                    </div>
+
+                    <div class="transmission-line">
+                        <div class="line-animation"></div>
+                    </div>
+
+                    <div class="demux-card">
+                        <div class="card-header">
+                            <div class="card-icon">DEMULTIPLEXER</div>
+                        </div>
+                        <div class="card-body" id="current-demux-state">Waiting for setup...</div>
+                    </div>
+                </div>
+
+                <div class="devices-section output-section">
+                    <div class="demux-card">
+                        <h2 class="card-icon strong">Reciever</h2>
+                        <div class="device-container" id="outputDevices"></div>
+                    </div>
+                </div>
+                
+            </div>
+        </main>
+    </div>
+
+    <script src="tdm-simulator copy 2.js"></script>
+</body>
+</html>
